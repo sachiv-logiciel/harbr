@@ -1,0 +1,395 @@
+/*---------------------------------*\
+               ARTICLE
+\*---------------------------------*/
+// cand mai pun una de asta sper sa pun si un comentariu cu motivul
+//.article--page {
+//	overflow: hidden;
+//}
+
+.article__title a {
+	-ms-word-wrap: break-word;
+	word-wrap: break-word;
+}
+
+.post .article__title {
+	-ms-word-wrap: break-word;
+	word-wrap: break-word;
+
+	@include media-query(lap-and-up){
+		margin-top: 42px;
+		margin-bottom: 36px;
+	}
+}
+
+.border-waves-top:after,
+.border-waves-bottom:before {
+	content: "";
+	display: block;
+	width: 100%;
+	height: 14px;
+	position: absolute;
+	left: 0;
+	background: url('../images/border-wave.svg') top left repeat-x;
+}
+
+.border-waves-top:after {
+    bottom: -7px;
+    background-position: top;
+    z-index: 20;
+}
+
+.border-waves-bottom:before {
+    top: -7px;
+    background-position: bottom;
+    z-index: 21;
+}
+
+.article--page {
+    position: relative;
+    // contain children margins
+    padding: 1px 0;
+
+    &.border-waves {
+
+     &:before, &:after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 14px;
+        position: absolute;
+        left: 0;
+        background: url('../images/border-wave.svg') top left repeat-x;
+    }
+
+    &:before {
+        top: -7px;
+        background-position: top;
+        z-index: 20;
+    }
+
+    &:after {
+        bottom: -7px;
+        background-position: bottom;
+        z-index: 21;
+    }
+}
+
+    &.article--arrow {
+
+        &:before {
+            display: none;
+        }
+    }
+
+    &:empty {
+
+        &:before, &:after {
+            display: none;
+        }
+    }
+}
+
+.article__content {
+
+}
+
+.article__meta {
+
+}
+
+.article__header {
+
+	&, * {
+		pointer-events: none;
+	}
+
+	.flexbox__item *,
+	.covers &,
+	.covers & *,
+	.is_iexplore &,
+	.is_iexplore & *,
+	.blurp--top,
+	.down-arrow {
+		pointer-events: auto;
+	}
+
+    .is_iexplore {
+        .flexbox, .flexbox__item { pointer-events: none; }
+        .flexbox__item * { pointer-events: auto; }
+    }
+
+	&.has-no-image {
+		background: #333;
+	}
+}
+
+.blurp--top {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -96px;
+    margin-top: -50px;
+    z-index: 10;
+}
+
+.article__header.article__header--page {
+	position: relative;
+	//	padding: 200px 0;
+	// background: #333;
+	overflow: hidden;
+
+	@include media-query(palm) {
+		padding: 0 $_u2;
+	}
+
+	.flexbox {
+		position: relative;
+		height: 100%;
+		z-index: 10;
+	}
+
+	.flexbox__item {
+		text-align: center;
+	}
+
+	&.full-height {
+//		height: 105%;
+		height: 100%;
+	}
+	&.half-height {
+		height: 50%;
+	}
+	&.two-thirds-height {
+		height: 66%;
+	}
+
+	&.header--slideshow {
+		padding: 0;
+	}
+}
+
+.blurp--top {
+    -webkit-transform-origin: 50% 100%;
+    -moz-transform-origin: 50% 100%;
+    -ms-transform-origin: 50% 100%;
+    -o-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+}
+
+.article__parallax {
+	position: absolute;
+	top: 0; right: 0; bottom: 0; left: 0;
+	opacity: 0;
+	pointer-events: none;
+
+	// &, * { pointer-events: none; }
+	.flexbox__item * { pointer-events: auto; }
+
+	.is_iexplore &,
+	.touch &,
+	.covers & {
+		pointer-events: auto;
+	}
+
+	.covers & {
+		position: absolute;
+		top: 0; left: 0; right: 0; bottom: auto;
+		background: none;
+		overflow: hidden;
+		opacity: 1;
+
+		.article__parallax__img {
+			opacity: 1;
+			max-width: none;
+			min-width: 100%;
+			min-height: 100%;
+			position: absolute;
+			top: 50%; left: 50%;
+			@include transform(translate(-50%, -50%));
+		}
+	}
+
+	.gmap,
+	.gmap--multiple-pins {
+		position: absolute;
+		top: 50%;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		@include transform(translate3d(0, -50%, 0));
+
+		img {
+			max-width: none;
+		}
+	}
+}
+
+.article__parallax__slider {
+	position: absolute;
+	top: 50%; right: 0; bottom: 0; left: 0;
+	@include transform(translateY(-50%));
+
+	img {
+		position: absolute;
+	}
+}
+
+.covers {
+	position: fixed;
+	top: 0; left: 0; right: 0;
+}
+
+.lt-ie9 {
+
+	.article__parallax {
+		width: 100% !important;
+		height: 100% !important;
+		top: 0 !important;
+		bottom: auto !important;
+		left: 0 !important;
+		@include transform(translate(-50%, -50%));
+	}
+}
+
+.no-scroll-effect {
+	.article__parallax,
+	.article__parallax .gmap,
+	.article__parallax .gmap--multiple-pins,
+	.article__parallax__img,
+	.article__parallax__slider {
+		@include transform(none !important);
+		top: 0 !important;
+	}
+}
+
+.article__parallax--img {
+
+	img {
+		position: absolute;
+		top: 50%; left: 50%;
+		opacity: 0;
+		max-width: none;
+		@include transform(translate(-50%, -50%));
+	}
+}
+
+.lt-ie9 {
+
+	.article__parallax--img {
+
+		img {
+			width: 100% !important;
+			top: 0 !important;
+			left: 0 !important;
+			@include transform(none);
+		}
+	}
+}
+
+.page {
+
+	.article__content {
+		position: relative;
+		width: 100%;
+		padding: 50px 0;
+		background-color: white;
+	}
+
+    .archive .article__content {
+        padding: 0;
+    }
+
+	.article--subpage.no-page-header .article__content {
+		padding-top: 0;
+	}
+
+//	&.inverse-colors {
+//		.article__content {
+//			background-color: black;
+//		}
+//	}
+}
+
+.down-arrow {
+	display: block;
+	width: 80px;
+	height: 80px;
+	opacity: 0.7;
+	position: absolute;
+	left: 50%;
+	margin-left: -40px;
+	cursor: pointer;
+	z-index: 10;
+
+    .arrow {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 20;
+        @include transform(rotate(45deg));
+    }
+}
+
+.down-arrow--bubble {
+    bottom: -16px;
+
+    .arrow {
+        width: $_u * 2/3;
+        height: $_u * 2/3;
+        margin-left: -1 * $_u2 * 2/3;
+        margin-top: -1 * $_u2 * 2/3;
+        border-right: 2px solid black;
+        border-bottom: 2px solid black;
+    }
+}
+
+.down-arrow--transparent {
+    bottom: 5%;
+
+    .arrow {
+        width: $_u;
+        height: $_u;
+        margin-left: -1 * $_u2;
+        margin-top: -1 * $_u2;
+        border-right: 3px solid white;
+        border-bottom: 3px solid white;
+    }
+}
+
+.down-arrow.down-arrow--inverse{
+	bottom: -30px;
+
+	width: 60px;
+	height: 60px;
+	margin-left: -30px;
+
+	background: white;
+	opacity: 1;
+
+	border-radius: 18px;
+	border-top-right-radius: 0;
+	border-bottom-left-radius: 0;
+
+	@include transform(rotate(45deg));
+
+	.arrow{
+		top: 10px;
+		left: 10px;
+
+		width: 16px;
+		height: 16px;
+
+		margin: 0;
+
+		border-color: $dark;
+		@include transform(rotate(0));
+	}
+}
+
+.article--page + .article--page {
+
+}
+
+.article--page + .article--page.has-post-thumbnail {
+
+}

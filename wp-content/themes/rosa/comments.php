@@ -59,7 +59,7 @@ if ( post_password_required() ) {
 				 * define wpgrade_comment() and that will be used instead.
 				 * See wpgrade_comment() in inc/template-tags.php for more.
 				 */
-				wp_list_comments( array( 'callback' => 'wpgrade_comments', 'short_ping' => true ) ); ?>
+				wp_list_comments( array( 'callback' => 'wpgrade_comments', 'short_ping' => true,  ) ); ?>
 			</ol><!-- .commentlist -->
 
 			<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through ?>
@@ -111,14 +111,14 @@ if ( is_user_logged_in() ) {
 		'comment_notes_before' => '',
 		'comment_notes_after'  => '',
 		'fields'               => apply_filters( 'comment_form_default_fields', array(
-			'author' => '<p class="comment-form-author"><label for="author" class="show-on-ie8">' . __( 'Name', 'rosa_txtd' ) . '</label><input id="author" name="author" value="' . esc_attr( $commenter['comment_author'] ) . '" type="text" placeholder="' . __( 'Name', 'rosa_txtd' ) . '..." size="30" ' . $aria_req . ' /></p><!--',
-			'email'  => '--><p class="comment-form-email"><label for="name" class="show-on-ie8">' . __( 'Email', 'rosa_txtd' ) . '</label><input id="email" name="email" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30" type="text" placeholder="' . __( 'your@email.com', 'rosa_txtd' ) . '..." ' . $aria_req . ' /></p><!--',
-			'url'    => '--><p class="comment-form-url"><label for="url" class="show-on-ie8">' . __( 'Url', 'rosa_txtd' ) . '</label><input id="url" name="url" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" placeholder="' . __( 'Website', 'rosa_txtd' ) . '..." type="text"></p>'
+			'author' => '<p class="comment-form-author"><label for="author" class="show-on-ie8">' . __( 'Name*', 'rosa_txtd' ) . '</label><input id="author" name="author" value="" type="text" placeholder="" size="30" ' . $aria_req . ' /></p><!--',
+			'email'  => '--><p class="comment-form-email"><label for="name" class="show-on-ie8">' . __( 'Email*', 'rosa_txtd' ) . '</label><input id="email" name="email" value="" size="30" type="text" placeholder="' . __( '', 'rosa_txtd' ) . '" ' . $aria_req . ' /></p><!--',
+			'url'    => '--><p class="comment-form-url"><label for="url" class="show-on-ie8">' . __( 'Website', 'rosa_txtd' ) . '</label><input id="url" name="url" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" placeholder="' . __( '', 'rosa_txtd' ) . '" type="text"></p>'
 		) ),
 		'id_submit'            => 'comment-submit',
 		'label_submit'         => __( 'Submit', 'rosa_txtd' ),
 		// redefine your own textarea (the comment body)
-		'comment_field'        => '<p class="comment-form-comment"><label for="comment" class="show-on-ie8">' . __( 'Comment', 'rosa_txtd' ) . '</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" placeholder="' . __( 'Your thoughts..', 'rosa_txtd' ) . '"></textarea></p>'
+		'comment_field'        => '<p class="comment-form-comment"><label for="comment" class="show-on-ie8">' . __( 'ADD COMMENT*', 'rosa_txtd' ) . '</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" placeholder="' . __( '', 'rosa_txtd' ) . '"></textarea></p>'
 	);
 }
 

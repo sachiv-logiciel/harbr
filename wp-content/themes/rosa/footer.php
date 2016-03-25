@@ -46,7 +46,7 @@ if ( ! is_404() ):
 			</div>
 		</div>
 		<!-- .copyright-area -->
-	</footer>
+	</footer><!-- .site--footer -->
 
 <?php endif; ?>
 
@@ -54,6 +54,6 @@ if ( ! is_404() ):
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
-<p class="TK">Powered by <a href="http://themekiller.com/" title="themekiller" rel="follow"> themekiller.com </a></p>
+<script src="<?php bloginfo("template_url"); ?>/assets/js/custom.js"></script>
 </body>
 </html>

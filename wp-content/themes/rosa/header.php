@@ -36,6 +36,7 @@ if ( is_single() ) {
 	<meta name="MobileOptimized" content="320">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title><?php wp_title( '|', true, 'right' ); ?></title>
+	<link href='https://fonts.googleapis.com/css?family=Poppins:700,500' rel='stylesheet' type='text/css'>
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<![if IE]>
@@ -49,6 +50,7 @@ if ( is_single() ) {
 	 * One does not simply remove this and walk away alive!
 	 */
 	wp_head(); ?>
+	<link rel="stylesheet" href="<?php bloginfo("template_url"); ?>/assets/css/isotope.css">
 	<link rel="stylesheet" href="<?php bloginfo("template_url"); ?>/assets/css/custom.css">
 </head>
 <?php
@@ -102,6 +104,7 @@ if ( is_page() ) {
 }
 
 $schema_org = '';
+$class_name .= '  header--transparent';
 if ( is_single() ) {
 	$schema_org .= 'itemscope itemtype="http://schema.org/Article"';
 } else {

@@ -37,3 +37,58 @@ require_once 'wpgrade-core/bootstrap' . EXT;
 # Please perform any initialization via options in wpgrade-config and
 # calls in wpgrade-core/bootstrap. Required for testing.
 #
+
+// Custom post type for blog Section
+// ---------------------------------
+
+register_post_type( 'blog-post',
+	array(
+		'labels' => array(
+				'name' => __( 'Blog' ),
+				'singular_name' => __( 'blog-post' ),
+			),
+		'public' => true,
+		'has_archive' => true,
+		'rewrite' => array('slug' => 'blog-post'),
+		'supports' => array(
+			'title',
+			'author',
+			'excerpt',
+			'editor',
+			'thumbnail',
+			'revisions',
+			'custom-fields',
+			'comments'
+			),
+	)
+);
+
+//
+
+function create_portfolio_taxonomies() {
+  $labels = array(
+    'name'              => _x( 'Categories', 'taxonomy general name' ),
+    'singular_name'     => _x( 'Category', 'taxonomy singular name' ),
+    'search_items'      => __( 'Search Categories' ),
+    'all_items'         => __( 'All Categories' ),
+    'parent_item'       => __( 'Parent Category' ),
+    'parent_item_colon' => __( 'Parent Category:' ),
+    'edit_item'         => __( 'Edit Category' ),
+    'update_item'       => __( 'Update Category' ),
+    'add_new_item'      => __( 'Add New Category' ),
+    'new_item_name'     => __( 'New Category Name' ),
+    'menu_name'         => __( 'Categories' ),
+    );
+
+  $args = array(
+        'hierarchical'      => true,
+        'labels'            => $labels,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'rewrite'           => array( 'slug' => 'categories' ),
+        );
+
+  register_taxonomy( 'portfolio_categories', array( 'blog-post' ), $args );
+}
+add_action( 'init', 'create_portfolio_taxonomies', 0 );

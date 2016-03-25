@@ -14,7 +14,7 @@ $classes = "article__header  article__header--page";
 //first lets get to know this page a little better
 $header_height = get_post_meta( wpgrade::lang_page_id( get_the_ID() ), wpgrade::prefix() . 'page_header_height', true );
 if ( empty($header_height) ) {
-	$header_height = 'half-height'; //the default
+	$header_height = 'full-height'; //the default
 }
 $classes .= ' ' . $header_height;
 

@@ -55,11 +55,43 @@ if ( post_password_required() && ! $wpgrade_private_post['allowed'] ) {
 								    		<?php if($count % 6 == 0): ?>
 												<?php if($count_inner < 1): ?>
 													<div class="blog-align">
-													<!-- Big Blog Thumb -->
-										    		<div class="blog-wrap">
+														<!-- Big Blog Thumb -->
+											    		<div class="blog-wrap">
+											    			<div class="inner-blog">
+													    		<a href="<?php echo get_permalink(); ?>">
+													    			<div class="grid-item grid-col-6">
+													    				<div class="image-container" style="background-image: url('<?php echo $url; ?>');">
+													    					<div class="linear-background"></div>
+													    				</div>
+													    			</div>
+													    		</a>
+													    		<div class="clear"></div>
+											    				<h3 class="blog-heading"><?php the_title();?></h3>
+											    				<small>
+											    					<?php 
+											    					$terms = get_the_terms( $post->ID , 'portfolio_categories');
+											    					foreach( $terms as $term ) {
+											    						print $term->slug ;
+											    						echo ", ";
+											    						unset($term);
+											    					} ?>
+											    				</small>
+											    				 <p><?php the_field('blog-text'); ?></p>
+											    				 <hr>
+											    				 <div class="admin-detail">
+											    					<?php $author_id=$post->post_author; ?>
+																	<?php echo get_avatar($default); ?> 
+																	<span>by <?php echo the_author_meta( 'user_nicename' , $author_id ); ?></span>
+											    				</div>
+										    				</div>
+									    				</div>
+									    			<?php $count_inner++; ?>
+									    		<?php else: ?>
+													<!-- Medium Blog Thumb -->
+									    			<div class="blog-wrap">
 										    			<div class="inner-blog">
 												    		<a href="<?php echo get_permalink(); ?>">
-												    			<div class="grid-item grid-col-6">
+												    			<div class="grid-item grid-col-8">
 												    				<div class="image-container" style="background-image: url('<?php echo $url; ?>');">
 												    					<div class="linear-background"></div>
 												    				</div>
@@ -76,87 +108,54 @@ if ( post_password_required() && ! $wpgrade_private_post['allowed'] ) {
 										    						unset($term);
 										    					} ?>
 										    				</small>
-										    				 <p><?php the_field('blog-text'); ?></p>
-										    				 <hr>
-										    				 <div class="admin-detail">
+										    				<p><?php the_field('blog-text'); ?></p>
+										    				<hr>
+										    				<div class="admin-detail">
 										    					<?php $author_id=$post->post_author; ?>
-																<?php echo get_avatar($default); ?> 
+																<?php echo get_avatar($default); ?>
 																<span>by <?php echo the_author_meta( 'user_nicename' , $author_id ); ?></span>
 										    				</div>
 									    				</div>
 								    				</div>
-								    			<?php $count_inner++; ?>
-
-								    		<?php else: ?>
-												<!-- Medium Blog Thumb -->
-								    			<div class="blog-wrap">
-									    			<div class="inner-blog">
-											    		<a href="<?php echo get_permalink(); ?>">
-											    			<div class="grid-item grid-col-8">
-											    				<div class="image-container" style="background-image: url('<?php echo $url; ?>');">
-											    					<div class="linear-background"></div>
-											    				</div>
-											    			</div>
-											    		</a>
-											    		<div class="clear"></div>
-									    				<h3 class="blog-heading"><?php the_title();?></h3>
-									    				<small>
-									    					<?php 
-									    					$terms = get_the_terms( $post->ID , 'portfolio_categories');
-									    					foreach( $terms as $term ) {
-									    						print $term->slug ;
-									    						echo ", ";
-									    						unset($term);
-									    					} ?>
-									    				</small>
-									    				<p><?php the_field('blog-text'); ?></p>
-									    				<hr>
-									    				<div class="admin-detail">
-									    					<?php $author_id=$post->post_author; ?>
-															<?php echo get_avatar($default); ?>
-															<span>by <?php echo the_author_meta( 'user_nicename' , $author_id ); ?></span>
+								    				<?php 
+													    $count_inner++;
+													    if($count_inner == 5) {
+													    	$count_inner = 0;
+															$count++;
+													    }
+													 ?>
+								    			<?php endif;?>
+												<?php else: ?>
+													<!-- Small Blog Thumb -->
+													<div class="blog-wrap float-right">
+										    			<div class="inner-blog">
+												    		<a href="<?php echo get_permalink(); ?>">
+												    			<div class="grid-item grid-col-3">
+												    				<div class="image-container" style="background-image: url('<?php echo $url; ?>');">
+												    					<div class="linear-background"></div>
+												    				</div>
+												    			</div>
+												    		</a>
+												    		<div class="clear"></div>
+										    				<h3 class="blog-heading"><?php the_title();?></h3>
+										    				<small>
+										    					<?php 
+										    					$terms = get_the_terms( $post->ID , 'portfolio_categories');
+										    					foreach( $terms as $term ) {
+										    						print $term->slug ;
+										    						echo ", ";
+										    						unset($term);
+										    					} ?>
+										    				</small>
+										    				<p><?php the_field('blog-text'); ?></p>
+										    				<hr>
+										    				<div class="admin-detail">
+										    					<?php $author_id=$post->post_author; ?>
+																<?php echo get_avatar($default); ?>
+																<span>by <?php echo the_author_meta( 'user_nicename' , $author_id ); ?></span>
+										    				</div>
 									    				</div>
 								    				</div>
-							    				</div>
-							    				<?php 
-												    $count_inner++;
-												    if($count_inner == 5) {
-												    	$count_inner = 0;
-														$count++;
-												    }
-												 ?>
-							    			<?php endif;?>
-											<?php else: ?>
-												<!-- Small Blog Thumb -->
-												<div class="blog-wrap float-right">
-									    			<div class="inner-blog">
-											    		<a href="<?php echo get_permalink(); ?>">
-											    			<div class="grid-item grid-col-3">
-											    				<div class="image-container" style="background-image: url('<?php echo $url; ?>');">
-											    					<div class="linear-background"></div>
-											    				</div>
-											    			</div>
-											    		</a>
-											    		<div class="clear"></div>
-									    				<h3 class="blog-heading"><?php the_title();?></h3>
-									    				<small>
-									    					<?php 
-									    					$terms = get_the_terms( $post->ID , 'portfolio_categories');
-									    					foreach( $terms as $term ) {
-									    						print $term->slug ;
-									    						echo ", ";
-									    						unset($term);
-									    					} ?>
-									    				</small>
-									    				<p><?php the_field('blog-text'); ?></p>
-									    				<hr>
-									    				<div class="admin-detail">
-									    					<?php $author_id=$post->post_author; ?>
-															<?php echo get_avatar($default); ?>
-															<span>by <?php echo the_author_meta( 'user_nicename' , $author_id ); ?></span>
-									    				</div>
-								    				</div>
-							    				</div>
 							    				</div>
 							    				<div class="clear"></div>
 							    				<?php $count = 0; ?>

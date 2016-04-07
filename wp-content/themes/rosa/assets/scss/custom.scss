@@ -21,7 +21,12 @@
 }
 
 /*Common code*/
-body, .site-header, .site-footer {
+* {
+    box-sizing: border-box;
+}
+body,
+ .site-header,
+ .site-footer {
 	border: none;
 }
 .blurp--top {
@@ -95,6 +100,7 @@ body, .site-header, .site-footer {
 	border: none;
 }
 
+
 /*Meet-the-team page*/
 .team-container {
 	.team-flat {
@@ -103,10 +109,8 @@ body, .site-header, .site-footer {
 		}
 	} 
 }
-
-/*Meet-the-team page*/
 .article__header {
-	.article__headline{
+	.article__headline {
 		.custom-btn {
 			height: 47px;
 			border-radius: 46px;
@@ -128,6 +132,7 @@ body, .site-header, .site-footer {
 	} 
 }
 
+
 /* Blog Page */
 .article-custom {
 	padding: 0;
@@ -136,7 +141,8 @@ body, .site-header, .site-footer {
     float: left;
     position: relative;
     overflow: hidden;
-    h3, small {
+    h3,
+    small {
     	position: absolute;
     	color: #fff;
     	bottom: 25px;
@@ -161,9 +167,9 @@ body, .site-header, .site-footer {
 			width:100%;
 			background-color: transparent !important;
 			background-image: -webkit-linear-gradient(bottom, #141618 0%, transparent 50%) !important;
-			background-image: -moz-linear-gradient(bottom, #141618 0%, transparent 50%) !important;
-			background-image: -o-linear-gradient(bottom, #141618 0%, transparent 50%) !important;
-			background-image: linear-gradient(to top, #141618 0%, transparent 50%) !important;
+			background-image:	 -moz-linear-gradient(bottom, #141618 0%, transparent 50%) !important;
+			background-image:	   -o-linear-gradient(bottom, #141618 0%, transparent 50%) !important;
+			background-image: 		  linear-gradient(to top, #141618 0%, transparent 50%) !important;
 			-webkit-transition: 0.4s ease-in-out;
   					transition: 0.4s ease-in-out;
 			&:hover {
@@ -172,10 +178,9 @@ body, .site-header, .site-footer {
 		}
     	&:hover {
 	        -webkit-transform: scale(1.08);
-  				transform: scale(1.08);
+  					transform: scale(1.08);
     	}
     }
-
 }
 .grid-col-6 {
 	width: 100%;
@@ -193,8 +198,10 @@ div.float-right {
 	float: right;
 }
 
+
 /*Blog-post-single-page*/
-.single-blog-post, .page-template-blog-post {
+.single-blog-post,
+.page-template-blog-post {
 	.headline__primary {
 		font-family: Poppins;
 		font-size: 6em;
@@ -224,7 +231,8 @@ div.float-right {
 
 /*Comments section code*/
 #comments {
-    &:after, &:before {
+    &:after,
+    &:before {
     	display: none;
     }
 	.comments-area-title {
@@ -256,10 +264,12 @@ time {
 .comment-number {
 	display: none;
 }
-.commentlist > .comment, .commentlist > .pingback {
+.commentlist > .comment,
+ .commentlist > .pingback {
 	padding-left: 0;
 }
-.comment-article .comment-edit-link, .comment-article .comment-reply-link {
+.comment-article .comment-edit-link,
+.comment-article .comment-reply-link {
 	opacity: 1;
 }
 .comment__avatar {
@@ -293,21 +303,13 @@ time {
 		border-color: #0cb4ce;
 	}
 }
-// .one-third, 
-// .two-sixths, 
-// .four-twelfths, 
-// .comment-form-author, 
-// .comment-form-email, 
-// .comment-form-url {
-// 	width: 100%;
-// }
 .comment-form-author label, 
 .comment-form-email label, 
 .comment-form-url label, 
 .comment-form label {
 	display: block;
-    color: #000;
     margin-bottom: 10px;
+    color: #000;
     font-family: Poppins;
     font-size: 12px;
     font-weight: 400;
@@ -321,6 +323,7 @@ time {
 		border-color: #0cb4ce;
 	}
 }
+
 
 /*Work-with-Us*/
 #post-790-title {
@@ -342,7 +345,9 @@ time {
 	.article__content {
 		background-color: #000;
 		.grid__item {
-			h1, p, ul {
+			h1,
+			p,
+			ul {
 				color: #fff;
 			}
 		}
@@ -376,6 +381,7 @@ time {
 	height: 400px;
 	width: 100%;
 }
+
 /*footer section*/
 .sidebar--footer__dark {
     background: url('../images/footer-image.jpg') no-repeat;
@@ -500,35 +506,11 @@ time {
 	border: 2px solid #fff;
 	border-radius: 50%;
 	opacity: .8;
-	transition: .3s ease-in-out;
+	-webkit-transition: .3s ease-in-out;
+			transition: .3s ease-in-out;
 	&:hover {
 		opacity: .4;
 	}
-}
-.site-footer .widget_wpgrade_social_links a {
-	padding: 12px;
-	padding-bottom: 8px;
-}
-.site-footer .widget_wpgrade_social_links .pixcode--icon::before {
-	margin: 0;
-}
-.site-footer .widget_wpgrade_social_links .pixcode--icon {
-	font-size: 20px;
-}
-#menu-footer-menu {
-	text-align: left;
-	li {
-		width: 24%;
-		text-align: center;
-		&:after {
-			content: "";
-		}	
-	}
-}
-.btn--top {
-	right: 100px;
-    top: 20px;
-    left: inherit;
 }
 .btn-book-online {
 	width: 200px;
@@ -558,9 +540,6 @@ time {
 .article__header .article__headline .headline__primary {
 	margin-bottom: 15px;
 	text-transform: capitalize;
-}
-.headline__primary {
-	text-align: left;
 }
 
 
@@ -646,8 +625,28 @@ time {
     margin-top: 0;
     margin-bottom: 10px;
 }
-.article__header .article__headline .headline__primary {
-	font-family: proximanova-Bold;
+
+/*Footer Social Icons*/
+.social-links {
+	margin-top: 20px;
+	.social-icon {
+		display: inline-block;
+		margin-right: 5px;
+		a {
+			-webkit-transition: 0.3s ease-in-out;
+  					transition: 0.3s ease-in-out;
+			&:hover {
+				opacity: .5;
+			}
+			i {
+				color: #fff;
+			    opacity: .8;
+			    border: 2px solid #fff;
+			    border-radius: 50%;
+			    padding: 3px 6px;
+			}
+		}
+	}
 }
 
 /*Material Design Code*/
@@ -664,7 +663,8 @@ time {
 		font-weight: 600;
 		line-height: 1.6;
 		opacity: 1;
-		transition: all 200ms ease-in-out;
+		-webkit-transition: all 200ms ease-in-out;
+				transition: all 200ms ease-in-out;
 		&:hover {
 			border: 1px solid #7bade1;
 			background: #7bade1;
@@ -711,7 +711,7 @@ time {
 	position: absolute;
 	background: #337ab7;
 	-webkit-transition: left 0.28s ease, width 0.28s ease;
-	transition: left 0.28s ease, width 0.28s ease;
+			transition: left 0.28s ease, width 0.28s ease;
 	z-index: 2;
 }
 .newsletter-container .form-group input,
@@ -726,7 +726,7 @@ time {
 	width: 100%;
 	color: transparent;
 	-webkit-transition: all 0.28s ease;
-	transition: all 0.28s ease;
+			transition: all 0.28s ease;
 	box-shadow: none;
 }
 .newsletter-container .form-group input[type="file"] {
@@ -791,6 +791,7 @@ time {
 		}
 	}
 }
+
 /*Media query for tab version(768px)*/
 @media(max-width: 768px) {
 	.team-container {
@@ -839,14 +840,5 @@ time {
 	.grid-col-3 {
 		width: 100%;
 		height: 250px;
-	}
-}
-* {
-    box-sizing: border-box;
-}
-
-@media (max-width: 631px) {
-	#menu-footer-menu > li {
-		width: 49%;
 	}
 }

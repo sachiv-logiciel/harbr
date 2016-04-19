@@ -125,6 +125,9 @@ echo ' ' . $data_smoothscrolling . ' ' . $data_main_color ?> >
 				<div class="flexbox__item">
 					<a href="#" class="js-nav-trigger  nav-trigger"><i class="icon-reorder"></i></a>
 				</div>
+				<div class="flexbox__item  branding-container">
+					<?php get_template_part( 'templates/header/branding' ); ?>
+				</div>
 				<div class="flexbox__item">
 					<?php
 					$theme_locations = get_nav_menu_locations();
@@ -186,9 +189,6 @@ echo ' ' . $data_smoothscrolling . ' ' . $data_main_color ?> >
 						</ul>
 						<?php wpgrade_main_nav(); ?>
 					</nav>
-				</div>
-				<div class="flexbox__item  branding-container">
-					<?php get_template_part( 'templates/header/branding' ); ?>
 				</div>
 			</div>
 			<!-- .flexbox -->

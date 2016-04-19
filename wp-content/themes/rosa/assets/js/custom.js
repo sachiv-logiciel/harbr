@@ -1,6 +1,15 @@
 jQuery(document).ready(function(){
 	// code to add overlay for single-blog-post
 	jQuery(".single-blog-post").find(".article__parallax").append("<div class='header-overlay'></div>");
+	jQuery("#post-776").addClass("view-active");
+	jQuery("#grid-view").click(function(){
+		jQuery("#post-555").removeClass("view-active");
+		jQuery("#post-776").addClass("view-active");
+	});
+	jQuery("#list-view").click(function(){
+		jQuery("#post-776").removeClass("view-active");
+		jQuery("#post-555").addClass("view-active");
+	});
 })
 
 //contact-form-7
